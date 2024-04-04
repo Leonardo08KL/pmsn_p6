@@ -1,27 +1,19 @@
 import 'package:day_night_switcher/day_night_switcher.dart';
 import 'package:flutter/material.dart';
+import 'package:pmsn_p6/screens/New_Registro_datos.dart';
 import 'package:pmsn_p6/screens/Registro_datos.dart';
+import 'package:pmsn_p6/screens/productos_firebase_screen.dart';
 import 'package:pmsn_p6/settings/app_value_notifier.dart';
 
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({super.key});
 
   static const List<Widget> _widgetOptions = <Widget>[
-    // Text(
-    //   'Home',
-    //   style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
-    // ),
+    ProductsFirebaseScreen(),
+    NewRegistroDatosScreen(),
     RegistroDatosScreen(),
     Text(
       'Search',
-      style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
-    ),
-    Text(
-      'Profile',
-      style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
-    ),
-    Text(
-      'Profile',
       style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
     ),
   ];
@@ -32,6 +24,9 @@ class DashboardScreen extends StatefulWidget {
 
 class _DashboardScreenState extends State<DashboardScreen> {
   int _selectedIndex = 0;
+  int _cartBadgeAmount = 3;
+  late bool _showCartBadge;
+  Color color = Colors.red;
 
   // Handle the tap event for each tab
   void _onItemTapped(int index) {
@@ -50,18 +45,19 @@ class _DashboardScreenState extends State<DashboardScreen> {
       appBar: AppBar(
         title: const Text('Dashboard'),
         backgroundColor: Colors.blue,
+        actions: <Widget>[],
       ),
       drawer: Drawer(
         child: ListView(
           children: [
-            UserAccountsDrawerHeader(
+            const UserAccountsDrawerHeader(
               currentAccountPicture: CircleAvatar(
                 backgroundImage: NetworkImage('https://i.pravatar.cc/500'),
               ),
               accountName: Text('Leonardo Covarrubias Lemus'),
               accountEmail: Text('19031645@itcelaya.edu.mx'),
             ),
-            ListTile(
+            const ListTile(
               leading: Icon(Icons.phone),
               title: Text("Práctica 1"),
               subtitle: Text("Aqui iria la descripcion si tuviera una XDD"),
@@ -74,13 +70,13 @@ class _DashboardScreenState extends State<DashboardScreen> {
             //   trailing: const Icon(Icons.chevron_right),
             //   onTap: () => Navigator.pushNamed(context, "/despensa"),
             // ),
-            // ListTile(
-            //   leading: const Icon(Icons.shop),
-            //   title: const Text("Mi despensa 2"),
-            //   subtitle: const Text("Relacion de productos que no voy a usar"),
-            //   trailing: const Icon(Icons.chevron_right),
-            //   onTap: () => Navigator.pushNamed(context, "/despensa"),
-            // ),
+            ListTile(
+              leading: const Icon(Icons.shop),
+              title: const Text("Mi despensa 2"),
+              subtitle: const Text("Relacion de productos que no voy a usar"),
+              trailing: const Icon(Icons.chevron_right),
+              onTap: () => Navigator.pushNamed(context, "/productos"),
+            ),
             // ListTile(
             //   //Se utiliza para manejar titulos y subtitulos en cada elemento, ademas de tener cosas a los lados
             //   leading: Icon(Icons.movie),
@@ -156,4 +152,23 @@ class _DashboardScreenState extends State<DashboardScreen> {
       ),
     );
   }
+
+  // Widget _shoppingCartBadge() {
+  //   return badges.Badge(
+  //     position: badges.BadgePosition.topEnd(top: 0, end: 3),
+  //     badgeAnimation: badges.BadgeAnimation.slide(
+  //         // disappearanceFadeAnimationDuration: Duration(milliseconds: 200),
+  //         // curve: Curves.easeInCubic,
+  //         ),
+  //     showBadge: _showCartBadge,
+  //     badgeStyle: badges.BadgeStyle(
+  //       badgeColor: color,
+  //     ),
+  //     badgeContent: Text(
+  //       _cartBadgeAmount.toString(),
+  //       style: TextStyle(color: Colors.white),
+  //     ),
+  //     child: IconButton(icon: Icon(Icons.shopping_cart), onPressed: () {}),
+  //   );
+  // }
 }

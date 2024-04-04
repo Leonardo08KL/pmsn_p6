@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "975375699843",
+    "project_id": "pmsnp6",
+    "storage_bucket": "pmsnp6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:975375699843:android:9260e28b110387e73b70b6",
+        "android_client_info": {
+          "package_name": "com.example.pmsn_p6"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCnjz5Z-erRctOjsLSbwhxc1UKMWVE3F1E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pmsn_p6/screens/dashboard_screen.dart';
+import 'package:pmsn_p6/screens/productos_firebase_screen.dart';
 import 'package:pmsn_p6/screens/splash_screen.dart';
 import 'package:pmsn_p6/settings/app_value_notifier.dart';
 import 'package:pmsn_p6/settings/theme.dart';
@@ -24,6 +25,8 @@ class MyApp extends StatelessWidget {
           home: const SplashScreen(),
           routes: {
             "/dash": (BuildContext context) => const DashboardScreen(),
+            "/productos": (BuildContext context) =>
+                const ProductsFirebaseScreen(),
           },
         );
       },
